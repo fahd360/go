@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+:root {
+    --green-color: #03C988;
+    --dark-blue-color: #00337C;
+    --light-blue-color: #1C82AD;
+    --btns-gradient: linear-gradient(25deg, rgba(28,130,173,1) 0%, rgba(3,201,136,1) 100%);
+    --section-color: #ECF2FC;
+    --section-padding: 100px;
+    --main-transition: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--section-color);
+}
+
+/*section title*/
+.section-title-container {
+    text-align: center;
+    position: relative;
+    margin-bottom: 80px;
+}
+
+.section-title {
+    position: relative;
+    font-size: 30px;
+    font-weight: 400;
+    padding: 0px 20px;
+    background-color: var(--section-color);
+    width: fit-content;
+    margin: 0 auto;
+    color: var(--dark-blue-color);
+    z-index: 6;
+}
+
+.section-title-container .dash {
+    position: absolute;
+    height: 2px;
+    width: 275px;
+    background-color: #00337C;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.section-title-container .dash::after,
+.section-title-container .dash::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--green-color);
+    border: 2px solid var(--dark-blue-color);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.section-title-container .dash::after{
+    left: calc(100% - 5px);
+}
+.section-title-container .dash::before{
+    right: calc(100% - 5px);
+}
+
+.hidden{
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1s;
+}
+
+.show   {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/***********************************hero section*********************************************/
+.hero-section {
+    background-image: linear-gradient(135deg, rgba(0,51,124,0.71) 0%, rgba(0,51,124,0.71) 50%, rgba(3,201,136,0.71) 100%), url(../img/landing-background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+/**************************************** vector wave ***********************************************/
+
+.hero-section::after{
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    width: 100%;
+    background-image: url(../img/Vector-wave.png);
+    background-size: cover;
+    background-position: 0px 80px;
+    background-repeat: no-repeat;
+    height: 175px;
+    z-index: 0;
+}
+
+@media (min-width: 750px) {
+    .hero-section::after{
+        bottom: 0;
+    }
+}
+
+/**************************************** landing ***********************************************/
+.hero-section .landing {
+    height: calc(70vh - 90px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section .landing h1{
+    font-size: 90px;
+    color: white;
+    font-weight: 400;
+}
+
+.content {
+    padding: var(--section-padding) 0;
+    margin-bottom: 100px;
+}
+
+.content .container {
+    display: grid;
+    justify-content: center;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
+    min-height: 196px;
+}
+
+.content .container .box{
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.content .container .box:nth-child(2) {
+    transition-delay: 100ms;
+}
+.content .container .box:nth-child(3) {
+    transition-delay: 200ms;
+}
+
+.content .container .box .title i{
+    font-size: 25px;
+    color: var(--green-color);
+    margin-right: 30px;
+}
+
+.content .container .box .title{
+    font-weight: 400;
+    color: var(--green-color);
+}
+
+.content .container .box .info-container{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.content .container .box .info{
+    display: block;
+    color: var(--dark-blue-color);
+}
+
+.content .container .box .info:hover{
+    display: block;
+    color: var(--light-blue-color);
+}
